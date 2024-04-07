@@ -1,4 +1,4 @@
 const tehtavat = document.querySelector('#tehtavat')
 
-let userInput = prompt('Name ?:')
+const userInput = prompt('Name ?:')
 tehtavat.textContent = `Hello ${userInput}!`;
