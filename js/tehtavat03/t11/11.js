@@ -93,9 +93,9 @@ const picArray = [
 ];
 
 const article = document.createElement('article');
-const dialog = document.querySelector('dialog')
-const dialogSpan = document.querySelector('dialog > span')
-dialogSpan.style = 'cursor: pointer'
+const dialog = document.querySelector('dialog');
+const dialogSpan = document.querySelector('dialog > span');
+dialogSpan.style = 'cursor: pointer';
 document.getElementById('pictures').appendChild(article);
 
 for (let i = 0; i < picArray.length; i++) {
@@ -125,10 +125,9 @@ for (let i = 0; i < picArray.length; i++) {
     document.querySelector('dialog > img').alt = picArray[i].title;
   });
 
-
   dialogSpan.addEventListener('click', () => {
-    dialog.close()
-  })
+    dialog.close();
+  });
 }
 
 
