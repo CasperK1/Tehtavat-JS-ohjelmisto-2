@@ -95,7 +95,7 @@ const picArray = [
 let article = document.createElement('article');
 document.getElementById('pictures').appendChild(article);
 
-for (let i = 1; i <= picArray.length; i++) {
+for (let i = 0; i < picArray.length; i++) {
   let h2 = document.createElement('h2');
   h2.textContent = picArray[i].title;
   article.appendChild(h2);
@@ -104,7 +104,7 @@ for (let i = 1; i <= picArray.length; i++) {
   article.appendChild(figure);
 
   let img = document.createElement('img');
-  img.src = 'thumbnails/pic' + i + '.jpg';
+  img.src = picArray[i].image.medium;
   img.alt = picArray[i].title;
   figure.appendChild(img);
 

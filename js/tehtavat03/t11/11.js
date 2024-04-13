@@ -98,7 +98,7 @@ const dialogSpan = document.querySelector('dialog > span')
 dialogSpan.style = 'cursor: pointer'
 document.getElementById('pictures').appendChild(article);
 
-for (let i = 1; i <= picArray.length; i++) {
+for (let i = 0; i < picArray.length; i++) {
   let h2 = document.createElement('h2');
   h2.textContent = picArray[i].title;
   article.appendChild(h2);
@@ -107,7 +107,7 @@ for (let i = 1; i <= picArray.length; i++) {
   article.appendChild(figure);
 
   let img = document.createElement('img');
-  img.src = 'thumbnails/pic' + i + '.jpg';
+  img.src = picArray[i].image.medium;
   img.alt = picArray[i].title;
   figure.appendChild(img);
 
@@ -121,7 +121,7 @@ for (let i = 1; i <= picArray.length; i++) {
 
   img.addEventListener('click', () => {
     dialog.showModal();
-    document.querySelector('dialog > img').src = 'img/pic' + i + '.jpg';
+    document.querySelector('dialog > img').src = picArray[i].image.large;
     document.querySelector('dialog > img').alt = picArray[i].title;
   });
 
