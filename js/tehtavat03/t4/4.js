@@ -19,5 +19,5 @@ for (let i = 0; i < students.length; i++) {
   let opt = document.createElement('option')
   opt.value = students[i].id;
   opt.innerHTML = students[i].name;
-  select.appendChild(opt)
+  select.appendChild(opt);
 }

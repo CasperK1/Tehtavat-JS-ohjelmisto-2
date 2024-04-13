@@ -92,15 +92,27 @@ const picArray = [
   },
 ];
 
-let article = document.createElement('article')
-document.getElementById('pictures').appendChild(article)
+let article = document.createElement('article');
+document.getElementById('pictures').appendChild(article);
 
-for (let i = 0; i < picArray.length; i++) {
-  article.innerHTML +=
-    `<h2>${picArray[i].title}</h2>
-    <figure>
-      <img src='img/pic${i}.jpg alt='${picArray[i].title}'></img>
-      <figcaption>${picArray[i].caption}</figcaption>
-    </figure>
-    <p>${picArray[i].description}</p>`;
+for (let i = 1; i <= picArray.length; i++) {
+  let h2 = document.createElement('h2');
+  h2.textContent = picArray[i].title;
+  article.appendChild(h2);
+
+  let figure = document.createElement('figure');
+  article.appendChild(figure);
+
+  let img = document.createElement('img');
+  img.src = 'thumbnails/pic' + i + '.jpg';
+  img.alt = picArray[i].title;
+  figure.appendChild(img);
+
+  let figcaption = document.createElement('figcaption');
+  figcaption.textContent = picArray[i].caption;
+  figure.appendChild(figcaption);
+
+  let p = document.createElement('p');
+  p.textContent = picArray[i].description;
+  article.appendChild(p);
 }
