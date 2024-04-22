@@ -1,3 +1,4 @@
+
 const form = document.querySelector('form');
 let article = document.createElement('article')
 
@@ -17,10 +18,14 @@ async function tvFetch(input) {
       h2.textContent = `${json[i].show.name}`
       article.appendChild(h2)
 
-      let img = document.createElement('img')
-      img.src = `${json[i].show.image?.medium}`
-      img.alt= 'No image'
-      article.appendChild(img)
+      let img = document.createElement('img');
+      if (json[i].show.image?.medium) {
+        img.src = `${json[i].show.image.medium}`;
+      } else {
+        img.src = 'https://via.placeholder.com/210x295?text=Not%20Found';
+      }
+      img.alt = 'No image';
+      article.appendChild(img);
 
       let a = document.createElement('a')
       a.style.display = 'block';
@@ -37,14 +42,15 @@ async function tvFetch(input) {
       }
       article.appendChild(summary);
       form.appendChild(article)
-    }}
+    }
   }
+}
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const input = document.getElementById('query').value;
-    await tvFetch(input);
-  });
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const input = document.getElementById('query').value;
+  await tvFetch(input);
+});
 
 
 
